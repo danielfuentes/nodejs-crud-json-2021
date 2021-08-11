@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "nombre": "Moto honda c125c",
+    "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    "precio": "150.000",
+    "descuento": "30",
+    "imagen": "color-rojo-wave.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Moto honda xr150",
+    "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    "precio": "250.000",
+    "descuento": "30",
+    "imagen": "roja-xr150-color.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Moto honda cgtitan190",
+    "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    "precio": "345.000",
+    "descuento": "15",
+    "imagen": "cgtitan-color-negro.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Moto honda repsol cb190",
+    "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    "precio": "286.000",
+    "descuento": "15",
+    "imagen": "cb190r-repsol.jpg"
+  }
+]

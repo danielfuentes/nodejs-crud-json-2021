@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+  <%- include('../partials/head.ejs') %>    
+<body>
+    <main class="container-fluid">
+      <%- include('../partials/navBar.ejs') %>
+      <!--Listado de nuestros productos-->
+      <br>
+      <section class="container-fluid">
+        <h1 class="titulo" >Que buenas Hondas</h1>
+      </section>
+      <section class="productos">
+        
+          <% for(let i= 0; i < motos.length; i++){ %>
+            
+              <article class="producto">
+                <figure class="imagenProducto" >
+                  <img  src="images/motos/<%= motos[i].imagen%> " class="card-img-top w-100 d-block" alt="Moto">
+                </figure>
+                  <% if (motos[i].descuento == 30) { %>
+                    <img class="descuento" src="img/promo30.png" alt="Descuento 30%">  
+                  <% }else if(motos[i].descuento == 15 ){ %>
+                    <img class="descuento" src="img/promo15.png" alt="Descuento 15%">
+                  <% } %>
+                <section class="detalle">
+                  <h5 class="card-title"><%= motos[i].nombre%></h5>
+                  <h5 class="card-title" >$  <%= motos[i].precio%> </h5>
+                  <p class="card-text descripcion"><%= motos[i].descripcion%> </p>
+                  <a href="#" class="btn btn-primary">Ver detalle</a>
+                </section>
+            
+              </article>        
+            
+          <% } %>
+        
+      </section>
+      <%- include('../partials/footer.ejs') %>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <%- include('../partials/head') %>
+  <body>
+    <main class="container-fluid">
+      <%- include('../partials/navBar') %>  
+        
+        <!-- Cuerpo principal -->
+        <section class="row">
+          <article class="col-12  card" >
+                  <div class="card-body">
+                    <h2 class="display-4 text-white bg-info text-center pt-2">Actualizar un Producto</h2>
+                  </div>
+          </article>
+      </section>
+
+        <section class="bg-home pt-4">
+            <div class="container">
+                <div class="row" >
+                    <div class="col-8 mx-auto bg-light ">
+                        <div class="create-form">
+                            <form action="/administrar/edit/<%= motoEditar.id%>?_method=PUT
+                            " method="POST" enctype="multipart/form-data" >
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" value="<%= motoEditar.nombre%>">
+                                </div>	
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required="required" value="<%= motoEditar.descripcion%>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="precio" placeholder="Indique el precio" required="required" value="<%= motoEditar.precio%>">
+                                </div>
+                                <div class="form-group">
+                                    <select  name="descuento" class="custom-select" id="validationCustom04" required>
+                                      <option disabled value="#">Seleccione un descuento"</option>
+                                      <option value="0" <%= motoEditar.descuento == 0 ? "selected" : null %>
+                                        >Sin descuento</option>
+                                      <option value="15" <%= motoEditar.descuento == 15 ? "selected" : null %>>15%</option>
+                                      <option value="30" <%= motoEditar.descuento == 30 ? "selected" : null %>>30%</option>
+                                    </select>
+                                </div>
+                                <!--Aquí solicito la imagen-->
+                                <div class="custom-file">
+                                    <figure class="form-group">
+                                        <img  class="w-100" src="/images/motos/<%= motoEditar.imagen%>" alt="moto <%= motoEditar.nombre%>">
+                                    </figure>
+                                    <input type="hidden"  name="oldImagen"  value="<%= motoEditar.imagen%>">
+                                    <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
+                                    <input type="file" name="imagen" >
+                                    <!--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imagen" required value=""> 
+
+                                    <label class="custom-file-label" for="inputGroupFile01">Seleccione una imagen...</label>-->
+                                  </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn btn-info">Actualizar</button>
+                                    <a href="/administrar" class="btn btn-danger">Volver</a>
+                                </div>
+                                
+                            </form>
+                    </div>                        
+                    </div>
+                </div>
+            </div>
+        </section>
+     </main>  
+</body>
+</html>

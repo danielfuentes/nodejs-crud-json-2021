@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <%- include('../partials/head.ejs') %>   
+  <body>
+    <main class="container-fluid">
+      <%- include('../partials/navBar.ejs') %>  
+      <section>
+        <img src="/img/banner1.jpg" alt="Banner moto honda">
+    </section>
+    <section>
+        <h1  class="titulo">Descubre y disfruta tu Honda </h1>
+    </section>
+    <section class="nosotros">
+        <article class="servicios">
+            <!--Así se le aplica css en línea a un elemento: <p  style="color:white;background-color: tomato;"  id="parrafoUnico" >-->
+            <p  id="parrafoUnico" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Et blanditiis quia perspiciatis! Nobis vitae officiis iusto nisi distinctio velit repellendus doloribus laudantium aperiam obcaecati, dolore quis deleniti unde asperiores aliquam, omnis aspernatur veritatis pariatur aut officia, quibusdam perspiciatis. Qui  Mollitia vitae, soluta eius sequi sit ratione culpa asperiores rerum expedita. Dolorum vero eveniet assumenda repellat fugit molestias omnis harum eius, molestiae a facilis quas, velit perferendis! Exercitationem expedita vel delectus sapiente corrupti odio, id eius commodi atque repellat iure consequuntur in veniam? Repellendus praesentium sequi tempore quas voluptas? Magnam dignissimos corporis.</p>
+        </article>
+        <article class="imagenNosotros">
+            <img src="/img/nosotros.jpg" alt="Imagen sobre nosotros">
+        </article>
+    </section>
+    <section>
+        <h2 class="titulo">Las más vendidas</h2>
+    </section>
+    <section class="productos">
+        
+          <% for(let i= 0; i < motos.length; i++){ %>
+            <% if (motos[i].descuento == 30) { %>
+              <article class="producto">
+                <figure class="imagenProducto" >
+                  <img  src="images/motos/<%= motos[i].imagen%> " class="card-img-top w-100 d-block" alt="Moto">
+                </figure>
+                  <% if (motos[i].descuento == 30) { %>
+                    <img class="descuento" src="img/promo30.png" alt="Descuento 30%">  
+                  <% }else if(motos[i].descuento == 15 ){ %>
+                    <img class="descuento" src="img/promo15.png" alt="Descuento 15%">
+                  <% } %>
+                <section class="detalle">
+                  <h5 class="card-title"><%= motos[i].nombre%></h5>
+                  <h5 class="card-title" >$  <%= motos[i].precio%> </h5>
+                  <p class="card-text descripcion"><%= motos[i].descripcion%> </p>
+                  <a href="#" class="btn btn-primary">Ver detalle</a>
+                </section>
+                <% } %>
+              </article>        
+            
+          <% } %>
+        
+    </section>
+    <section class="fondo">
+        <!--<img src="/img/banner.jpg" alt="Banner moto honda">-->
+    </section>
+
+      <%- include('../partials/footer.ejs') %>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,253 @@
+*{
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
+    margin: 0 ;
+}
+
+/*Esto produce un efecto, como un scroll con una transición*/
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+
+/*Aplicando propiedades al menú de hamburguesa*/
+.hamburguesa{
+    font-size: 25px;
+    background-color: teal;
+    color: white;
+    display: block;
+    margin: auto;
+    text-align: center;
+    max-width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/*Aplicando propiedades al menu*/
+.menu{
+    display: none;
+}
+
+.opciones{
+    list-style-type: none;
+    padding: 0;
+}
+/*
+.opciones a{
+    background-color: teal;
+    color: white;
+    text-decoration: none;
+    display: block;
+    max-width: 200px;
+    margin: auto;
+    text-align: center;
+}
+*/
+.servicios{
+    text-align: justify;
+}
+
+.titulo{
+    font-size: 3rem;   /*tamaño fuente: 16px    Medidas absolutas pixel, medidas relativas EM ó REM ó %*/
+    color: white;
+    background-color: teal;  /*RGB  - RGBA  #ffffff*/
+    text-align: center;
+}
+
+
+img{
+    width: 100%;
+}
+.fondo{
+    background-image: url('../img/banner.jpg');
+    height: 550px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: none;
+}
+
+/*Aquí estoy usando posicionamiento - Pueden observar como el la imagen del descuento queda por arriba de la imagen ya que posee una posición absoluta y además el artículo posee un posicionamiento relativo, por lo tanto el elemento se dispone absolutamente dentro del contenedor*/
+/*-----------------------------------------------------------------*/
+.descuento{
+    right: 15px;
+    top: 20px;
+    position: absolute;
+    width: 15%;
+}
+/*-----------------------------------------------------------------*/
+
+
+/*Aquí al artículo le coloque posición relativa, esto produce el efecto visual de que el descuento se posiciona absolutamente, pero dentro del contenedor y no con relación al body de nuestra página*/
+.producto{
+    opacity: 1;
+    position: relative;
+    
+}
+
+
+
+/*Forma de aplicar CSS a un o a cualquier elemento que posea la clase destacado (class = "destacado"
+.destacado{
+    color: teal;
+    font-size: 3rem;
+    background-color: white;
+    padding: 20px;
+}
+*/
+/*Forma como podemos aplicar CSS a un elemento que contenga un selector ID ( llamado parrafoUnico)
+#parrafoUnico{
+    color: tomato;
+    background-color: white;
+    padding: 15px;
+    border: 10px solid red;
+}
+*/
+
+/*Aquí estoy aplicando CSS a un selector de etiqueta
+p{
+    color: white;
+    background-color: turquoise;
+    text-align: justify;
+}
+*/
+.descripcion{
+    display: none;
+    /*Noten que por ejemplo esta propiedad la quiero igual en la visualización de cualquier dispositivo, entonces no la tengo que colocar nuevamente a menos que deseo otorgarle otro valor a la misma propiedad*/
+    text-align: justify;
+    padding: 10px;
+}
+
+.boton{
+    text-decoration: none;
+    font-family: 1.2rem;
+    padding: 0 10px;
+    color: white;
+    background-color: tomato;
+    border-radius: 10px;
+}
+
+.footer{
+    background-color: tomato;
+}
+
+.derechos{
+    color: white;
+}
+.opciones a{
+    margin: 0 5px;
+}
+.menuFooter{
+    display: none;
+}
+.redes a{
+    font-size: 1.2rem;
+    color: white;
+}
+
+.subir {
+    color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.avatar{
+    width: 10%;
+}
+
+
+/*Media Queries*/
+@media (min-width:768px){
+    /*Aquí incorporo el comportameinto Flexible*/
+    .encabezado{
+        display: flex;
+        background-color: rgba(0, 128,128,0.8);
+        justify-content: space-between;
+        align-items: center;
+
+        /*Aquí aplico lo referido al posicionamiento fijo (fixed), al encabezado*/
+        /*position: fixed;*/
+    }
+    .hamburguesa{
+        display: none;
+    }    
+    .menu{
+        display: block;
+    }
+    .logo{
+        width: 10%;
+    }
+    .menu{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 100;
+    }
+    .opciones{
+        display: flex;
+        padding-left: 40px;
+        padding-right: 10px;
+    }
+    .opciones a{
+        color: white;
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+    .opciones a:hover{
+        color: teal;
+        background-color: white;
+        border-radius: 10px;
+    }
+    
+    /*Aquí vuelvo a utilizar el Flexbox sobre el ccontenedor de nosotros*/
+    .nosotros{
+        display: flex;
+    }
+    .servicios, .imagenNosotros{
+        width: 50%;
+        padding: 20px;
+    }
+    
+
+    /*Aquí pueden ver como en las media queries pisamos las propieades dispuestas a los elementos, cuando trabajamos en modo celular*/
+    .descripcion{
+        display: block;
+    }
+
+    /*Aquí vuelvo a incorporar Flexbox, en donde muestros los productos mas vendidos*/
+    .productos{
+        display: flex;
+        padding: 20px;
+        flex-wrap: wrap;
+        
+    }
+    .producto{
+        width: 50%;
+    }
+    .producto:hover{
+        opacity: 0.8;
+    }   
+    .fondo{
+        display: block;
+    }
+    .footer{
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+    }
+    }
+
+@media (min-width: 992px){
+    .productos{
+        flex-wrap: nowrap;
+    }
+    .menuFooter{
+        display: block;
+    }
+       
+}

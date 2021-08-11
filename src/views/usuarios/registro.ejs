@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <%-include('../partials/head') %>
+  <body>
+    <div class="container-fluid">
+        <%- include('../partials/navBar') %>  
+        <!-- Cuerpo principal -->
+        <section class="row">
+          <article class="col-12  card " >
+                  <div class="card-body container-fluid">
+                    <h2 class="card-title text-white  bg-info  text-center display-4 ">Registrate</h2>
+                    <h4 class="text-center " >Crea tu cuenta, sólo te tomara unos minutos.</h4>
+                  </div>
+          </article>
+      </section>
+
+        <section class="bg-home pt-4">
+            <div class="container">
+                <div class="row" >
+                    <div class="col-8 mx-auto bg-light ">
+                        <!-- Aquí muestro los errores --->
+                        <% if(typeof(errors) != 'undefined'){%>
+                           <ul class="alert alert-danger">
+                              <% errors.forEach(error => { %>
+                                 <li><%= error.msg%></li>
+                              <%});%>
+                            </ul>
+                        <%}%>    
+                        <!----Fin mostrar errores--------->
+                        <div class="signup-form">
+                            <form action="/registro" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <!--Noten aqui en los input estoy persistiendo los datos si el usuario coloca algunos datos  buenos, pero otros no-->                                  
+                                    <input required type="text" class="form-control" name="first_name" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="last_name" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
+                                </div>	
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="password" placeholder="Contraseña"  >
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirma Contraseña" >
+                                </div>        
+                                <div class="custom-file">
+                                  <input type="file"   name="avatar"  placeholder="Debes eligir tu avatar...">
+                              </div>                                
+                              <div class="form-group">
+                                  <button type="submit" class="btn btn btn-info">Registrarse</button>
+                              </div>
+                            </form>
+                            <div class="text-center my-3">Ya tengo una cuenta? <a href="/login">Inicia sesión</a></div>
+                        </div>
+                    </div>                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+</body>
+</html>
