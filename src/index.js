@@ -3,6 +3,9 @@ const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
 
+//Requerir el Miidleware - Mantenimiento -- Aplicación
+const mantenimiento = require('./middlewares/mantenimiento');
+
 //Aqui requiero los paquetes para trabajar lo referido a session y cookies
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -22,7 +25,8 @@ app.use(express.urlencoded({ extended: false }));
 //Middleware de aplicación el cual se encargue de controlar la posibilidad de usar otros métodos diferentes al GET y al POST, en nuestros formularios
 app.use(methodOverride('_method'));
 
-
+//Middleware de Mantenimiento -- Aplicación
+//app.use(mantenimiento);
 
 //Requerir las rutas
 const webRoutes = require('./routes/web');
