@@ -3,10 +3,9 @@ const router = express.Router();
 const path = require('path');
 const multer = require('multer');
 
-//Requerir el Middleware - Ruta
-const mantenimiento = require('../middlewares/mantenimiento');
-
 const controllersAdmin = require(path.resolve(__dirname,'../controllers/controllersAdmin'));
+//Requerir el middleware Ruta Acceso
+const acceso = require(path.resolve(__dirname,'../middlewares/acceso'));
 
 //Como podemos indicar para subir el archivo nombre y donde guardarlo
 var storage = multer.diskStorage({
@@ -20,7 +19,7 @@ var storage = multer.diskStorage({
    
   const upload = multer({ storage })
 
-router.get('/administrar', controllersAdmin.index);
+router.get('/administrar', acceso, controllersAdmin.index);
 router.get('/administrar/create', controllersAdmin.create);
 router.post('/administrar/create', upload.single('imagen'), controllersAdmin.save);
 router.get('/administrar/detail/:id', controllersAdmin.show);

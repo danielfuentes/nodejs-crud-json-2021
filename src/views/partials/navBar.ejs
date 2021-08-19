@@ -8,20 +8,25 @@
       <ul class="opciones">
           <li><a href="/">Inicio</a></li>
           <li><a href="/productos">Productos</a></li>
-          <li><a href="/administrar">Administrar</a></li>
-            
+          <% if(locals.usuario.role == 9){%>
+            <li><a href="/administrar">Administrar</a></li>
+          <% } %>  
       </ul>
 
       <ul class="opciones">
-          
+        <% if(locals.usuario) { %>  
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-cart-plus"></i></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
           </li>
-          
-          
+          <li class="nav-item">
+              <div class="avatar">
+                <img  src="/images/usuarios/<%=locals.usuario.avatar %>"   style= 'border-radius: 100%;'alt="">
+              </div>
+          </li>
+        <% } else { %>  
   
           <!--Cuando no estoy logueado debería ver esto-->
           <li class="nav-item">
@@ -30,7 +35,7 @@
           <li class="nav-item">
             <a href="/registro"><i class="fas fa-user-plus"></i></a>
           </li>
-          
+        <%}%>  
       </ul>
   </nav>
 </header>
