@@ -1,7 +1,7 @@
 {
-  "name": "ejsproyecto",
+  "name": "ejsproyectojson",
   "version": "1.0.0",
-  "description": "Proyecto de trabajo con ejs",
+  "description": "Proyecto de trabajo con ejs - express-validator - session - cookies - hash",
   "main": "src/index.js",
   "scripts": {
     "test": "nodemon src/index.js"
