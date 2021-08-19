@@ -1,4 +1,4 @@
-<strong>Proyecto desarrollado con caracter Académico, bajo NodeJs</strong>  
+<strong>Proyecto desarrollado con caracter Académico, bajo NodeJs - Express</strong>  
 
 CRUD ó ABM de Productos, Registro, Ingreso, Validaciones, Middleware, Session, Cookies y Hash, todo basado en archvos en formato JSON. 
 
